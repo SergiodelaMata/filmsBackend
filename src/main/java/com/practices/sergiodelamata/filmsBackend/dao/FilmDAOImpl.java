@@ -48,7 +48,7 @@ public class FilmDAOImpl implements IFilmDAO{
 
     @Override
     public List<Film> searchFilmsByGenres(String genres) {
-        return filmJPA.findByGenresLike(genres);
+        return filmJPA.findByGenresContaining(genres);
     }
 
     @Override

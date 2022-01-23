@@ -14,5 +14,5 @@ public interface IFilmJPA extends JpaRepository<Film, Integer> {
 
     List<Film> findByDirectionContaining(String direction);
 
-    List<Film> findByGenresLike(String genres);
+    List<Film> findByGenresContaining(String genres);
 }
