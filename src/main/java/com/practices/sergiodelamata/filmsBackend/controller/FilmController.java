@@ -5,7 +5,6 @@ import com.practices.sergiodelamata.filmsBackend.service.IFilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -28,9 +27,9 @@ public class FilmController {
         return filmService.searchFilmsByTitle(title);
     }
 
-    @GetMapping("/films/date/{dateInit}/{dateEnd}")
-    public List<Film> searchFilmsByYear(@PathVariable("dateInit") Date dateInit, @PathVariable("dateEnd") Date dateEnd){
-        return filmService.searchFilmsByYear(dateInit, dateEnd);
+    @GetMapping("/films/year/{yearInit}/{yearEnd}")
+    public List<Film> searchFilmsByYear(@PathVariable("yearInit") Integer yearInit, @PathVariable("yearEnd") Integer yearEnd){
+        return filmService.searchFilmsByYear(yearInit, yearEnd);
     }
 
     @GetMapping("/films/country/{country}")

@@ -2,7 +2,6 @@ package com.practices.sergiodelamata.filmsBackend.service;
 
 import com.practices.sergiodelamata.filmsBackend.model.Film;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface IFilmService {
@@ -12,7 +11,7 @@ public interface IFilmService {
 
     List<Film> searchFilmsByTitle(String title);
 
-    List<Film> searchFilmsByYear(Date dateInit, Date dateEnd);
+    List<Film> searchFilmsByYear(Integer yearInit, Integer yearEnd);
 
     List<Film> searchFilmsByCountry(String country);
 

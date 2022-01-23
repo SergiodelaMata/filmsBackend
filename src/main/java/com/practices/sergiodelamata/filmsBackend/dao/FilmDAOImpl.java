@@ -1,11 +1,9 @@
 package com.practices.sergiodelamata.filmsBackend.dao;
 
-import com.practices.sergiodelamata.filmsBackend.model.Actor;
 import com.practices.sergiodelamata.filmsBackend.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +32,8 @@ public class FilmDAOImpl implements IFilmDAO{
     }
 
     @Override
-    public List<Film> searchFilmsByYear(Date dateInit, Date dateEnd) {
-        return filmJPA.findByYearBetween(dateInit, dateEnd);
+    public List<Film> searchFilmsByYear(Integer yearInit, Integer yearEnd) {
+        return filmJPA.findByYearBetween(yearInit, yearEnd);
     }
 
     @Override

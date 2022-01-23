@@ -5,7 +5,6 @@ import com.practices.sergiodelamata.filmsBackend.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -29,8 +28,8 @@ public class FilmServiceImpl implements IFilmService{
     }
 
     @Override
-    public List<Film> searchFilmsByYear(Date dateInit, Date dateEnd) {
-        return filmDAO.searchFilmsByYear(dateInit, dateEnd);
+    public List<Film> searchFilmsByYear(Integer yearInit, Integer yearEnd) {
+        return filmDAO.searchFilmsByYear(yearInit, yearEnd);
     }
 
     @Override
