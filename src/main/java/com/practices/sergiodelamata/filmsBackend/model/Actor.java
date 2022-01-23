@@ -36,7 +36,7 @@ public class Actor {
     @JoinTable(name = "participate", joinColumns = {
             @JoinColumn(name="idActor", referencedColumnName = "idActor")},
             inverseJoinColumns = {@JoinColumn(name="idFilm", referencedColumnName = "idFilm")})
-    @JsonIgnoreProperties("actor")
+    @JsonIgnoreProperties("actors")
     private List<Film> films = new ArrayList<>();
 
     public List<Film> getFilms() {

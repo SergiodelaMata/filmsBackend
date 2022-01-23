@@ -45,7 +45,7 @@ public class Film {
     private byte[] image;
 
     @ManyToMany(mappedBy = "films")
-    @JsonIgnoreProperties("film")
+    @JsonIgnoreProperties("films")
     private List<Actor> actors = new ArrayList<>();
 
     public List<Actor> getActors() {
