@@ -1,9 +1,12 @@
 package com.practices.sergiodelamata.filmsBackend.dao;
 
+import com.practices.sergiodelamata.filmsBackend.model.Actor;
 import com.practices.sergiodelamata.filmsBackend.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +14,9 @@ import java.util.Optional;
 public class FilmDAOImpl implements IFilmDAO{
     @Autowired
     IFilmJPA filmJPA;
+
+    @Autowired
+    IActorJPA actorJPA;
 
     @Override
     public List<Film> searchAll() {
@@ -58,7 +64,16 @@ public class FilmDAOImpl implements IFilmDAO{
 
     @Override
     public void deleteFilm(Integer idFilm) {
-        filmJPA.deleteById(idFilm);
+        Optional<Film> optionalFilm = filmJPA.findById(idFilm);
+        if(optionalFilm.isPresent())
+        {
+            Film film = optionalFilm.get();
+            for (Actor actor : film.getActors()) {
+                actor.getFilms().remove(film);
+                actorJPA.save(actor);
+            }
+            filmJPA.deleteById(idFilm);
+        }
     }
 
     @Override

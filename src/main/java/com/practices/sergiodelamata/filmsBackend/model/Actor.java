@@ -3,7 +3,7 @@ package com.practices.sergiodelamata.filmsBackend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +21,7 @@ public class Actor {
     private String name;
 
     @Column(name = "birthDate")
-    private LocalDate birthDate;
+    private Date birthDate;
 
     @Lob
     @Column(name = "countryBirth", nullable = false)
@@ -55,11 +55,11 @@ public class Actor {
         this.countryBirth = countryBirth;
     }
 
-    public LocalDate getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

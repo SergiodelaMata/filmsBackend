@@ -41,11 +41,11 @@ public class Film {
     @Column(name = "synopsis", nullable = false)
     private String synopsis;
 
-    @Column(name = "image", nullable = false)
+    @Column(name = "image")
     private byte[] image;
 
-    @ManyToMany(mappedBy = "films")
-    @JsonIgnoreProperties("films")
+    @ManyToMany(mappedBy = "films", cascade = CascadeType.REFRESH)
+    @JsonIgnoreProperties("film")
     private List<Actor> actors = new ArrayList<>();
 
     public List<Actor> getActors() {
@@ -141,13 +141,13 @@ public class Film {
         return Objects.hash(idFilm);
     }
 
-    public void addFilm(Actor actor){
+    public void addActor(Actor actor){
         if(actor != null){
             getActors().add(actor);
         }
     }
 
-    public void removeFilm(Actor actor){
+    public void removeActor(Actor actor){
         if(actor != null){
             getActors().remove(actor);
         }

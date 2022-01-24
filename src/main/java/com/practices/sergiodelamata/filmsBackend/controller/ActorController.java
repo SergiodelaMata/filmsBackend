@@ -32,7 +32,7 @@ public class ActorController {
         actorService.saveActor(actor);
     }
 
-    @DeleteMapping("/actors")
+    @DeleteMapping("/actors/{idActor}")
     public void deleteActor(@PathVariable("idActor") Integer idActor){
         actorService.deleteActor(idActor);
     }
@@ -40,5 +40,10 @@ public class ActorController {
     @PutMapping("/actors")
     public void updateActor(@RequestBody Actor actor){
         actorService.updateActor(actor);
+    }
+
+    @PostMapping("/actors/insert/film/{idActor}/{idFilm}")
+    public void insertFilm(@PathVariable("idActor") Integer idActor, @PathVariable("idFilm") Integer idFilm){
+        actorService.insertFilm(idActor, idFilm);
     }
 }
