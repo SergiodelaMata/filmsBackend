@@ -42,7 +42,7 @@ public class ActorController {
         actorService.updateActor(actor);
     }
 
-    @PostMapping("/actors/insert/film/{idActor}/{idFilm}")
+    @PutMapping("/actors/insert/film/{idActor}/{idFilm}")
     public void insertFilm(@PathVariable("idActor") Integer idActor, @PathVariable("idFilm") Integer idFilm){
         actorService.insertFilm(idActor, idFilm);
     }
