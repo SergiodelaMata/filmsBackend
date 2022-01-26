@@ -27,6 +27,9 @@ public class Actor {
     @Column(name = "countryBirth", nullable = false)
     private String countryBirth;
 
+    @Column(name = "image")
+    private String image;
+
     @ManyToMany
     /*@JoinTable(name = "participate",
             joinColumns = @JoinColumn(name = "idActor"),
@@ -77,6 +80,16 @@ public class Actor {
 
     public void setIdActor(Integer idActor) {
         this.idActor = idActor;
+    }
+
+    public String getImage()
+    {
+        return image;
+    }
+
+    public void setImage(String image)
+    {
+        this.image = image;
     }
 
     @Override

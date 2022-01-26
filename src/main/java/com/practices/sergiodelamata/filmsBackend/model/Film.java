@@ -42,7 +42,7 @@ public class Film {
     private String synopsis;
 
     @Column(name = "image")
-    private byte[] image;
+    private String image;
 
     @ManyToMany(mappedBy = "films", cascade = CascadeType.REFRESH)
     @JsonIgnoreProperties("film")
@@ -56,11 +56,11 @@ public class Film {
         this.actors = actors;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
