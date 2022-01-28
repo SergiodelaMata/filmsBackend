@@ -70,4 +70,17 @@ public class FilmServiceImpl implements IFilmService{
             filmDAO.updateFilm(film);
         }
     }
+
+    @Override
+    public void insertActor(Integer idFilm, Integer idActor)
+    {
+        filmDAO.insertActor(idFilm, idActor);
+    }
+
+    @Override
+    public void removeActor(Integer idFilm, Integer idActor)
+    {
+        filmDAO.removeActor(idFilm, idActor);
+    }
+
 }

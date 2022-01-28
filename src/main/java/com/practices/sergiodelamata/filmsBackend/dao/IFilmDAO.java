@@ -24,4 +24,8 @@ public interface IFilmDAO {
     void deleteFilm(Integer idFilm);
 
     void updateFilm(Film film);
+
+    void insertActor(Integer idFilm, Integer idActor);
+
+    void removeActor(Integer idFilm, Integer idActor);
 }

@@ -56,10 +56,26 @@ public class ActorDAOImpl implements IActorDAO{
         if(optionalActor.isPresent())
         {
             Actor actor = optionalActor.get();
+            System.out.println(actor.getFilms().size());
             Optional<Film> optionalFilm = filmJPA.findById(idFilm);
             if(optionalFilm.isPresent())
             {
                 actor.addFilm(optionalFilm.get());
+                actorJPA.save(actor);
+            }
+        }
+    }
+
+    @Override
+    public void removeFilm(Integer idActor, Integer idFilm){
+        Optional<Actor> optionalActor = actorJPA.findById(idActor);
+        if(optionalActor.isPresent())
+        {
+            Actor actor = optionalActor.get();
+            Optional<Film> optionalFilm = filmJPA.findById(idFilm);
+            if(optionalFilm.isPresent())
+            {
+                actor.removeFilm(optionalFilm.get());
                 actorJPA.save(actor);
             }
         }

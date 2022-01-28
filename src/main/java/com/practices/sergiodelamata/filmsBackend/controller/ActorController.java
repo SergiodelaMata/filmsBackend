@@ -46,4 +46,10 @@ public class ActorController {
     public void insertFilm(@PathVariable("idActor") Integer idActor, @PathVariable("idFilm") Integer idFilm){
         actorService.insertFilm(idActor, idFilm);
     }
+
+    @DeleteMapping("/actors/delete/film/{idActor}/{idFilm}")
+    public void deleteFilm(@PathVariable("idActor") Integer idActor, @PathVariable("idFilm") Integer idFilm){
+        actorService.removeFilm(idActor, idFilm);
+    }
+
 }

@@ -61,4 +61,15 @@ public class FilmController {
     public void updateFilm(@RequestBody Film film){
         filmService.updateFilm(film);
     }
+
+    @PutMapping("/films/insert/actor/{idFilm}/{idActor}")
+    public void insertFilm(@PathVariable("idFilm") Integer idFilm, @PathVariable("idActor") Integer idActor){
+        filmService.insertActor(idFilm, idActor);
+    }
+
+    @DeleteMapping("/films/delete/actor/{idFilm}/{idActor}")
+    public void deleteFilm(@PathVariable("idFilm") Integer idFilm, @PathVariable("idActor") Integer idActor){
+        filmService.removeActor(idFilm, idActor);
+    }
+
 }

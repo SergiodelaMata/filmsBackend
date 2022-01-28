@@ -53,4 +53,9 @@ public class ActorServiceImpl implements IActorService{
     public void insertFilm(Integer idActor, Integer idFilm) {
         actorDAO.insertFilm(idActor, idFilm);
     }
+
+    @Override
+    public void removeFilm(Integer idActor, Integer idFilm) {
+        actorDAO.removeFilm(idActor, idFilm);
+    }
 }

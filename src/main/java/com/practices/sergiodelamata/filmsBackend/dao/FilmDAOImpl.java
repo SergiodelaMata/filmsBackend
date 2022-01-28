@@ -78,4 +78,37 @@ public class FilmDAOImpl implements IFilmDAO{
     public void updateFilm(Film film) {
         filmJPA.save(film);
     }
+
+    @Override
+    public void insertActor(Integer idFilm, Integer idActor) {
+        Optional<Film> optionalFilm = filmJPA.findById(idFilm);
+        System.out.println(optionalFilm.get().getActors().size());
+        if(optionalFilm.isPresent())
+        {
+            Film film = optionalFilm.get();
+            Optional<Actor> optionalActor = actorJPA.findById(idActor);
+            if(optionalActor.isPresent())
+            {
+                Actor actor = optionalActor.get();
+                actor.addFilm(film);
+                actorJPA.save(actor);
+            }
+        }
+    }
+
+    @Override
+    public void removeActor(Integer idFilm, Integer idActor) {
+        Optional<Film> optionalFilm = filmJPA.findById(idFilm);
+        if(optionalFilm.isPresent())
+        {
+            Film film = optionalFilm.get();
+            Optional<Actor> optionalActor = actorJPA.findById(idActor);
+            if(optionalActor.isPresent())
+            {
+                Actor actor = optionalActor.get();
+                actor.removeFilm(film);
+                actorJPA.save(actor);
+            }
+        }
+    }
 }

@@ -18,4 +18,6 @@ public interface IActorDAO {
     void updateActor(Actor actor);
 
     void insertFilm(Integer idActor, Integer idFilm);
+
+    void removeFilm(Integer idActor, Integer idFilm);
 }
