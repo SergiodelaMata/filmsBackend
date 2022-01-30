@@ -31,11 +31,6 @@ public class Actor {
     private String image;
 
     @ManyToMany
-    /*@JoinTable(name = "participate",
-            joinColumns = @JoinColumn(name = "idActor"),
-            inverseJoinColumns = @JoinColumn(name = "idFilm"))
-    Esto no funciona, se ha cambiado a lo siguiente:
-    */
     @JoinTable(name = "participate", joinColumns = {
             @JoinColumn(name="idActor", referencedColumnName = "idActor")},
             inverseJoinColumns = {@JoinColumn(name="idFilm", referencedColumnName = "idFilm")})
