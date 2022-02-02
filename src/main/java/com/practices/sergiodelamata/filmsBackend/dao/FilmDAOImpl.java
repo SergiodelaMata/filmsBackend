@@ -82,7 +82,6 @@ public class FilmDAOImpl implements IFilmDAO{
     @Override
     public void insertActor(Integer idFilm, Integer idActor) {
         Optional<Film> optionalFilm = filmJPA.findById(idFilm);
-        System.out.println(optionalFilm.get().getActors().size());
         if(optionalFilm.isPresent())
         {
             Film film = optionalFilm.get();
