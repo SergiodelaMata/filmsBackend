@@ -45,7 +45,7 @@ public class Film {
     private String image;
 
     @ManyToMany(mappedBy = "films", cascade = CascadeType.REFRESH)
-    @JsonIgnoreProperties("film")
+    @JsonIgnoreProperties("films")
     private List<Actor> actors = new ArrayList<>();
 
     public List<Actor> getActors() {
